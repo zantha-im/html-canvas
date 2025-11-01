@@ -5,7 +5,7 @@ A clean, modular announcements page designed for Shopify's HTML editor with cons
 ## Features
 
 - **Consistent Design**: Uniform typography, colors, and spacing throughout
-- **Anchor Navigation**: Deep-linkable sections via Shopify menu integration (no custom nav panel)
+- **Anchor Navigation**: Deep-linkable sections via Shopify menu integration 
 - **Responsive**: Works perfectly on desktop, tablet, and mobile devices
 - **Modular Components**: Easy to add new announcements using the card component
 - **Smooth Scrolling**: Anchor links land with proper offset below sticky headers
@@ -18,7 +18,7 @@ A clean, modular announcements page designed for Shopify's HTML editor with cons
 announcements/
 ├── announcements-page.html    # Main page file (copy this to Shopify)
 ├── README.md                  # This documentation
-└── templates/                 # Announcement templates (coming soon)
+└── templates/                 # Announcement templates
     ├── standard-announcement.html
     ├── product-update.html
     └── shipping-alert.html
