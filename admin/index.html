@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
     <style>
         .nav-item {
             @apply px-4 py-3 rounded-lg font-medium cursor-pointer transition-all border-l-4 border-transparent;
@@ -85,34 +86,42 @@
                     <!-- Announcements Section -->
                     <div class="section-group">
                         <div class="section-title">Announcements</div>
-                        <button class="nav-item active w-full text-left" data-type="announcements" data-view="main">
-                            <span class="text-lg">📄</span> Main Page
+                        <button class="nav-item active w-full text-left flex items-center gap-3" data-type="announcements" data-view="main">
+                            <svg class="w-5 h-5" data-lucide="file-text"></svg>
+                            <span>Main Page</span>
                         </button>
-                        <button class="nav-item inactive w-full text-left" data-type="announcements" data-view="template" data-template="standard">
-                            <span class="text-lg">📋</span> Standard Template
+                        <button class="nav-item inactive w-full text-left flex items-center gap-3" data-type="announcements" data-view="template" data-template="standard">
+                            <svg class="w-5 h-5" data-lucide="clipboard-list"></svg>
+                            <span>Standard Template</span>
                         </button>
-                        <button class="nav-item inactive w-full text-left" data-type="announcements" data-view="template" data-template="product-update">
-                            <span class="text-lg">📋</span> Product Update
+                        <button class="nav-item inactive w-full text-left flex items-center gap-3" data-type="announcements" data-view="template" data-template="product-update">
+                            <svg class="w-5 h-5" data-lucide="clipboard-list"></svg>
+                            <span>Product Update</span>
                         </button>
-                        <button class="nav-item inactive w-full text-left" data-type="announcements" data-view="template" data-template="shipping-alert">
-                            <span class="text-lg">📋</span> Shipping Alert
+                        <button class="nav-item inactive w-full text-left flex items-center gap-3" data-type="announcements" data-view="template" data-template="shipping-alert">
+                            <svg class="w-5 h-5" data-lucide="clipboard-list"></svg>
+                            <span>Shipping Alert</span>
                         </button>
                     </div>
 
                     <!-- Extended Product Section -->
                     <div class="section-group">
                         <div class="section-title">Extended Product</div>
-                        <button class="nav-item inactive w-full text-left" data-type="extended-product" data-view="main">
-                            <span class="text-lg">📄</span> Main Page
+                        <button class="nav-item inactive w-full text-left flex items-center gap-3" data-type="extended-product" data-view="main">
+                            <svg class="w-5 h-5" data-lucide="file-text"></svg>
+                            <span>Main Page</span>
                         </button>
-                        <button class="nav-item inactive w-full text-left" data-type="extended-product" data-view="template" data-template="product-gallery">
-                            <span class="text-lg">📋</span> Gallery Component
+                        <button class="nav-item inactive w-full text-left flex items-center gap-3" data-type="extended-product" data-view="template" data-template="product-gallery">
+                            <svg class="w-5 h-5" data-lucide="image-gallery"></svg>
+                            <span>Gallery Component</span>
                         </button>
-                        <button class="nav-item inactive w-full text-left" data-type="extended-product" data-view="template" data-template="product-specs">
-                            <span class="text-lg">📋</span> Specs Component
+                        <button class="nav-item inactive w-full text-left flex items-center gap-3" data-type="extended-product" data-view="template" data-template="product-specs">
+                            <svg class="w-5 h-5" data-lucide="list-checks"></svg>
+                            <span>Specs Component</span>
                         </button>
-                        <button class="nav-item inactive w-full text-left" data-type="extended-product" data-view="template" data-template="product-testimonials">
-                            <span class="text-lg">📋</span> Testimonials
+                        <button class="nav-item inactive w-full text-left flex items-center gap-3" data-type="extended-product" data-view="template" data-template="product-testimonials">
+                            <svg class="w-5 h-5" data-lucide="message-square"></svg>
+                            <span>Testimonials</span>
                         </button>
                     </div>
                 </div>
@@ -227,6 +236,9 @@
 
         // Load initial snippet
         document.querySelector('[data-type="announcements"][data-view="main"]').click();
+
+        // Initialize Lucide icons
+        lucide.createIcons();
 
         // Copy to clipboard
         function copyToClipboard(btn) {
