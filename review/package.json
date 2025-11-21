@@ -1,0 +1,27 @@
+{
+  "name": "windsurf",
+  "version": "1.1.1",
+  "private": true,
+  "description": "Self-contained analyzer dependencies for the .windsurf code review tools",
+  "license": "UNLICENSED",
+  "scripts": {
+    "review:porcelain": "node code-review.js --porcelain",
+    "review:repo": "node code-review.js",
+    "review:debug": "node code-review.js --debug --report-all",
+    "lint:repo": "eslint --config .eslintrc.review.cjs --resolve-plugins-relative-to . --max-warnings=0 --no-ignore ../../{app,components,lib,hooks,types,pages}/**/*.{ts,tsx}",
+    "tsc": "tsc --noEmit -p tsconfig.review.json"
+  },
+  "devDependencies": {
+    "@jscpd/finder": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/parser": "7.18.0",
+    "dotenv": "^16.4.5",
+    "eslint": "8.57.0",
+    "eslint-plugin-react": "7.35.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "jscpd": "^4.0.5",
+    "knip": "5.27.0",
+    "pg": "^8.13.0",
+    "typescript": "5.8.3"
+  }
+}
