@@ -1,0 +1,62 @@
+<!-- Product Specifications Component -->
+<style>
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .spec-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .spec-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+    }
+
+    .spec-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+    }
+
+    @media (max-width: 768px) {
+        .specs-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .specs-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<section class="specs-grid">
+    <div class="spec-card">
+        <div class="spec-label">Material</div>
+        <div class="spec-value">Premium Grade</div>
+    </div>
+    <div class="spec-card">
+        <div class="spec-label">Dimensions</div>
+        <div class="spec-value">25 × 15 × 8 cm</div>
+    </div>
+    <div class="spec-card">
+        <div class="spec-label">Weight</div>
+        <div class="spec-value">450g</div>
+    </div>
+    <div class="spec-card">
+        <div class="spec-label">Warranty</div>
+        <div class="spec-value">2 Years</div>
+    </div>
+</section>

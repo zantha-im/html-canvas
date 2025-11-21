@@ -16,6 +16,37 @@
   font-weight: 600;
 }
 
+.viewToggle {
+  background: var(--card-border);
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.viewToggle:hover:not(:disabled) {
+  background: var(--card);
+  color: var(--text-primary);
+}
+
+.viewToggle.active {
+  background: var(--btn);
+  color: white;
+  border-color: var(--btn);
+}
+
+.viewToggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .copyBtn {
   background: var(--btn);
   color: white;
@@ -78,9 +109,93 @@
 
 .error {
   padding: 16px;
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(239, 68, 68, 0.15);
   border: 1px solid var(--danger);
   border-radius: 6px;
   color: var(--danger);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.error strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.error p {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.renderedView {
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 600px;
+}
+
+.renderedView :global(details) {
+  margin-bottom: 16px;
+}
+
+.renderedView :global(summary) {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 12px;
+  background: var(--card-border);
+  border-radius: 6px;
+  user-select: none;
+}
+
+.renderedView :global(summary:hover) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.renderedView :global(summary h3),
+.renderedView :global(summary h4),
+.renderedView :global(summary h5) {
+  margin: 0;
+  display: inline;
+}
+
+.renderedView :global(details > div) {
+  padding: 16px 12px;
+  margin-top: 8px;
+}
+
+.renderedView :global(ul),
+.renderedView :global(ol) {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+.renderedView :global(li) {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.renderedView :global(p) {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.renderedView :global(strong) {
+  font-weight: 600;
+}
+
+.renderedView :global(em) {
+  font-style: italic;
+}
+
+.renderedView :global(h4) {
+  margin: 16px 0 8px 0;
+  font-size: 16px;
+}
+
+.renderedView :global(h5) {
+  margin: 12px 0 6px 0;
   font-size: 14px;
 }

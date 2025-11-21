@@ -1,41 +1,37 @@
 'use client'
 
 import AppLayout, { navSections } from '@/components/AppLayout'
+import ProductPreviewInline from '@/components/ProductPreviewInline'
 import SnippetViewer from '@/components/SnippetViewer'
 import { useState } from 'react'
+
+interface Product {
+  id: string
+  name: string
+  brand: string
+}
+
+const products: Product[] = [
+  { id: 'braaid', name: 'Braaid', brand: 'SKëLD' },
+  { id: 'tholtan', name: 'Tholtan', brand: 'SKëLD' },
+]
 
 const contentDescriptions: Record<string, { title: string; description: string }> = {
   'announcements-main': {
     title: 'Announcements Main Page',
     description: 'Dynamic announcement pages with color-coded banners, responsive design, and anchor navigation.',
   },
-  'announcements-standard': {
-    title: 'Standard Announcement Template',
-    description: 'Basic announcement template for quick additions to your announcements page.',
+  'product-braaid': {
+    title: 'SKëLD - Braaid',
+    description: 'View and manage all components for this product',
   },
-  'announcements-product-update': {
-    title: 'Product Update Template',
-    description: 'Specialized announcement template for product-focused updates and releases.',
+  'product-tholtan': {
+    title: 'SKëLD - Tholtan',
+    description: 'View and manage all components for this product',
   },
-  'announcements-shipping-alert': {
-    title: 'Shipping Alert Template',
-    description: 'Template for shipping, logistics, and service-related announcements.',
-  },
-  'extended-product-main': {
-    title: 'Extended Product Main Page',
-    description: 'Rich product showcase with gallery, specifications, features, and customer testimonials.',
-  },
-  'extended-product-gallery': {
-    title: 'Product Gallery Component',
-    description: 'Multi-image gallery with thumbnail navigation for product showcase.',
-  },
-  'extended-product-specs': {
-    title: 'Product Specifications Component',
-    description: 'Responsive specifications grid for displaying product details.',
-  },
-  'extended-product-testimonials': {
-    title: 'Product Testimonials Component',
-    description: 'Customer review cards with ratings and testimonial text.',
+  'product-cashtal': {
+    title: 'SKëLD - Cashtal',
+    description: 'View and manage all components for this product',
   },
 }
 
@@ -62,6 +58,16 @@ export default function Home() {
     return null
   }
 
+  // Show product preview for product items
+  if (navItem.view === 'product-preview') {
+    return (
+      <AppLayout activeItem={activeItem} onNavClick={setActiveItem}>
+        <ProductPreviewInline product={navItem.template} title={desc.title} description={desc.description} />
+      </AppLayout>
+    )
+  }
+
+  // Show snippet viewer for announcements
   return (
     <AppLayout activeItem={activeItem} onNavClick={setActiveItem}>
       <SnippetViewer

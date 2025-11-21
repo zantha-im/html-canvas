@@ -1,0 +1,167 @@
+.header {
+  margin-bottom: 24px;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.componentWrapper {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.componentWrapper:hover {
+  border-color: var(--btn);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.componentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.02);
+  border: none;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.componentHeader:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.headerButton {
+  background: transparent;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  flex: 1;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.headerButton:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  color: var(--text-secondary);
+}
+
+.componentLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.copyIconBtn {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  margin-right: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.copyIconBtn:hover:not(:disabled) {
+  background: var(--btn);
+  border-color: var(--btn);
+  color: white;
+}
+
+.copyIconBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.copyIconBtn.copiedSuccess {
+  background: var(--btn-success);
+  border-color: var(--btn-success);
+  color: white;
+}
+
+.placeholder {
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
+}
+
+.placeholder:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.placeholderText {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.loading {
+  padding: 32px 24px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.componentContent {
+  padding: 24px;
+}
+
+.componentContent :global(ul),
+.componentContent :global(ol) {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+.componentContent :global(li) {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.componentContent :global(p) {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.componentContent :global(strong) {
+  font-weight: 600;
+}
+
+.componentContent :global(em) {
+  font-style: italic;
+}
+
+.componentContent :global(h4) {
+  margin: 16px 0 8px 0;
+  font-size: 16px;
+}
+
+.componentContent :global(h5) {
+  margin: 12px 0 6px 0;
+  font-size: 14px;
+}

@@ -1,0 +1,487 @@
+<!--
+================================================================================
+  Shopify Extended Product Page
+  
+  This HTML file is designed to be pasted directly into the Shopify page editor.
+  A rich, detailed product showcase with specifications, gallery, and testimonials.
+================================================================================
+-->
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    /* Google Fonts Import */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    /* CSS Custom Properties for Consistent Branding */
+    :root {
+        --bg-primary: #1E2128;
+        --bg-secondary: #252831;
+        --bg-tertiary: #2D3039;
+        --border-color: #343741;
+        --text-primary: #FFFFFF;
+        --text-secondary: #D1D5DB;
+        --text-muted: #9CA3AF;
+        --accent-primary: #4471BA;
+        --accent-secondary: #4471BA;
+        --success: #469B3B;
+        --warning: #F59E0B;
+        --danger: #EF4444;
+    }
+
+    /* Base Styles */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+
+    /* Product Container */
+    .product-container {
+        min-height: 100vh;
+    }
+
+    /* Hero Section */
+    .product-hero {
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+        border-bottom: 1px solid var(--border-color);
+        padding: 3rem 0;
+    }
+
+    .product-hero h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--text-primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+    }
+
+    .product-hero .subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* Gallery Section */
+    .gallery-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .gallery-main {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        border: 1px solid var(--border-color);
+        aspect-ratio: 4/3;
+        background: var(--bg-secondary);
+    }
+
+    .gallery-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gallery-thumbs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .gallery-thumb {
+        border: 2px solid var(--border-color);
+        border-radius: 0.5rem;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        aspect-ratio: 1;
+    }
+
+    .gallery-thumb:hover,
+    .gallery-thumb.active {
+        border-color: var(--accent-primary);
+    }
+
+    .gallery-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Specifications Grid */
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .spec-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .spec-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+    }
+
+    .spec-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+    }
+
+    /* Features Section */
+    .features-section {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin: 2rem 0;
+    }
+
+    .features-section h2 {
+        font-size: 1.875rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0 0 1.5rem 0;
+    }
+
+    .features-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .feature-item {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .feature-icon {
+        flex-shrink: 0;
+        width: 2rem;
+        height: 2rem;
+        background: var(--accent-primary);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+    }
+
+    .feature-content h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0 0 0.5rem 0;
+    }
+
+    .feature-content p {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+        margin: 3rem 0;
+    }
+
+    .testimonials-section h2 {
+        font-size: 1.875rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0 0 2rem 0;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .testimonial-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.2s ease;
+    }
+
+    .testimonial-card:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 12px -1px rgba(68, 113, 186, 0.1);
+    }
+
+    .testimonial-stars {
+        color: var(--warning);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.875rem;
+    }
+
+    .testimonial-role {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: linear-gradient(135deg, var(--accent-primary) 0%, #5a7ec9 100%);
+        border-radius: 1rem;
+        padding: 3rem 2rem;
+        text-align: center;
+        margin: 3rem 0;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: white;
+        margin: 0 0 1rem 0;
+    }
+
+    .cta-section p {
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0 0 1.5rem 0;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: white;
+        color: var(--accent-primary);
+        padding: 0.75rem 2rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .product-hero h1 {
+            font-size: 2rem;
+        }
+
+        .specs-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .features-list {
+            grid-template-columns: 1fr;
+        }
+
+        .cta-section {
+            padding: 2rem 1.5rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .product-hero h1 {
+            font-size: 1.5rem;
+        }
+
+        .specs-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-thumbs {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+</style>
+
+<!-- Main Content -->
+<div class="product-container">
+    <!-- Hero Section -->
+    <section class="product-hero">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <h1>Premium Product Name</h1>
+            <p class="subtitle">Exceptional quality meets innovative design</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-8">
+        <!-- Gallery Section -->
+        <section class="gallery-container">
+            <div>
+                <div class="gallery-main">
+                    <img id="mainImage" src="https://via.placeholder.com/800x600?text=Product+Image" alt="Product main image">
+                </div>
+                <div class="gallery-thumbs">
+                    <div class="gallery-thumb active" onclick="changeImage(this)">
+                        <img src="https://via.placeholder.com/100x100?text=Image+1" alt="Product image 1">
+                    </div>
+                    <div class="gallery-thumb" onclick="changeImage(this)">
+                        <img src="https://via.placeholder.com/100x100?text=Image+2" alt="Product image 2">
+                    </div>
+                    <div class="gallery-thumb" onclick="changeImage(this)">
+                        <img src="https://via.placeholder.com/100x100?text=Image+3" alt="Product image 3">
+                    </div>
+                    <div class="gallery-thumb" onclick="changeImage(this)">
+                        <img src="https://via.placeholder.com/100x100?text=Image+4" alt="Product image 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications -->
+        <section class="specs-grid">
+            <div class="spec-card">
+                <div class="spec-label">Material</div>
+                <div class="spec-value">Premium Grade</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-label">Dimensions</div>
+                <div class="spec-value">25 × 15 × 8 cm</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-label">Weight</div>
+                <div class="spec-value">450g</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-label">Warranty</div>
+                <div class="spec-value">2 Years</div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>Key Features</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-content">
+                        <h3>Premium Quality</h3>
+                        <p>Crafted with the finest materials and attention to detail</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-content">
+                        <h3>Durable Design</h3>
+                        <p>Built to last with rigorous testing and quality assurance</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-content">
+                        <h3>Expert Support</h3>
+                        <p>Dedicated customer service team ready to assist</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-content">
+                        <h3>Fast Shipping</h3>
+                        <p>Quick and reliable delivery to your doorstep</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-content">
+                        <h3>Eco-Friendly</h3>
+                        <p>Sustainable materials and responsible manufacturing</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-content">
+                        <h3>Money-Back Guarantee</h3>
+                        <p>100% satisfaction guaranteed or your money back</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2>Customer Reviews</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Absolutely exceptional product. The quality exceeded my expectations and the customer service was outstanding. Highly recommend!"</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-role">Verified Buyer</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Best purchase I've made in years. The attention to detail is remarkable and it arrived faster than expected. Worth every penny."</p>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-role">Verified Buyer</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I've recommended this to all my friends. The quality is unmatched and the support team was incredibly helpful when I had questions."</p>
+                    <div class="testimonial-author">Emma Williams</div>
+                    <div class="testimonial-role">Verified Buyer</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Experience Excellence?</h2>
+            <p>Join thousands of satisfied customers who've made the switch</p>
+            <a href="#" class="cta-button">Shop Now</a>
+        </section>
+    </div>
+</div>
+
+<script>
+    function changeImage(thumbnail) {
+        // Remove active class from all thumbnails
+        document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+            thumb.classList.remove('active');
+        });
+        
+        // Add active class to clicked thumbnail
+        thumbnail.classList.add('active');
+        
+        // Update main image
+        const img = thumbnail.querySelector('img');
+        document.getElementById('mainImage').src = img.src;
+    }
+</script>

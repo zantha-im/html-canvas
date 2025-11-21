@@ -1,0 +1,86 @@
+<!-- Product Testimonials Component -->
+<style>
+    .testimonials-section {
+        margin: 3rem 0;
+    }
+
+    .testimonials-section h2 {
+        font-size: 1.875rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0 0 2rem 0;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .testimonial-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.2s ease;
+    }
+
+    .testimonial-card:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 12px -1px rgba(68, 113, 186, 0.1);
+    }
+
+    .testimonial-stars {
+        color: var(--warning);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.875rem;
+    }
+
+    .testimonial-role {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<section class="testimonials-section">
+    <h2>Customer Reviews</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Absolutely exceptional product. The quality exceeded my expectations and the customer service was outstanding. Highly recommend!"</p>
+            <div class="testimonial-author">Sarah Johnson</div>
+            <div class="testimonial-role">Verified Buyer</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Best purchase I've made in years. The attention to detail is remarkable and it arrived faster than expected. Worth every penny."</p>
+            <div class="testimonial-author">Michael Chen</div>
+            <div class="testimonial-role">Verified Buyer</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I've recommended this to all my friends. The quality is unmatched and the support team was incredibly helpful when I had questions."</p>
+            <div class="testimonial-author">Emma Williams</div>
+            <div class="testimonial-role">Verified Buyer</div>
+        </div>
+    </div>
+</section>

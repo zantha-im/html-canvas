@@ -1,0 +1,379 @@
+<!--
+================================================================================
+  Shopify Announcements Page
+  
+  This HTML file is designed to be pasted directly into the Shopify page editor.
+================================================================================
+-->
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    /* Google Fonts Import */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    /* CSS Custom Properties for Consistent Branding */
+    :root {
+        --bg-primary: #1E2128;
+        --bg-secondary: #252831;
+        --bg-tertiary: #2D3039;
+        --border-color: #343741;
+        --text-primary: #FFFFFF;
+        --text-secondary: #D1D5DB;
+        --text-muted: #9CA3AF;
+        --accent-primary: #4471BA;
+        --accent-secondary: #4471BA;
+        --success: #469B3B;
+        --warning: #F59E0B;
+        --danger: #EF4444;
+        --nav-width: 320px;
+    }
+
+    /* Base Styles */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+
+    /* Main Content Container */
+    .main-content {
+        min-height: 100vh;
+    }
+
+    /* (nav removed) */
+
+    /* (nav panel, overlay, inner header removed) */
+
+    /* Announcement Card Component */
+    .announcement-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: all 0.2s ease;
+    }
+
+    .announcement-card:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 12px -1px rgba(79, 169, 230, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Date Stamp */
+    .announcement-date {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #E5E7EB; /* lighter for more prominence */
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding-bottom: 0.25rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Card Banner */
+    .card-banner {
+        padding: 1.25rem 1.5rem 0.75rem 1.5rem;
+        border-radius: 0.75rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem; /* consistent space between title and subtitle */
+    }
+
+    .card-banner h2 {
+        font-size: 1.875rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0; /* remove extra bottom margin to balance padding */
+        line-height: 1.3;
+    }
+
+    .card-banner p {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: #FFFFFF !important;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    /* Banner Color Variants */
+    .banner-primary { background-color: var(--accent-primary); }
+    .banner-secondary { background-color: var(--accent-secondary); }
+    .banner-success { background-color: var(--success); }
+    .banner-warning { background-color: var(--warning); }
+    .banner-danger { background-color: var(--danger); }
+
+    /* Typography Consistency */
+    .announcement-card h2 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.3;
+    }
+
+    .announcement-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 1.5rem 0 0.75rem 0;
+        line-height: 1.4;
+    }
+
+    .announcement-card p,
+    .announcement-card ul {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .announcement-card ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+    }
+
+    .announcement-card li {
+        margin-bottom: 0.75rem;
+    }
+
+    .announcement-card li strong {
+        color: #6FA3E6;
+        font-weight: 600;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        :root {
+            --nav-width: 280px;
+        }
+
+        .main-content.nav-open {
+            margin-left: var(--nav-width);
+        }
+
+        .nav-toggle-btn.nav-open {
+            left: calc(var(--nav-width) + 1rem);
+        }
+
+        .announcement-card {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-banner h2 {
+            font-size: 1.5rem;
+        }
+
+        .announcement-card h2 {
+            font-size: 1.875rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .announcement-card { padding: 1rem; }
+    }
+
+    /* Better anchor landing when using external sticky headers */
+    .announcement-section { scroll-margin-top: 96px; }
+</style>
+
+<!-- Main Content -->
+<div class="main-content" id="mainContent">
+    <div class="p-6 lg:p-8">
+
+
+        <!-- Page Header -->
+        <header class="text-center mb-12">
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                Stay updated with the latest news, updates, and important information from Mr Snuff.
+            </p>
+        </header>
+        <!-- Announcements Container -->
+        <main class="announcements-container">
+            
+            <!-- Warehouse move complete -->
+            <section id="warehouse-move-complete" class="announcement-section">
+                <div class="announcement-date">Thursday, October 31, 2025</div>
+                <div class="announcement-card">
+                    <div class="card-banner banner-success">
+                        <h2>Warehouse move complete</h2>
+                        <p style="color: #FFFFFF !important;">Normal shipping has resumed!</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+                        <div><img src="https://cdn.shopify.com/s/files/1/0375/4016/7724/files/warehouse-is-back.png?v=1761937357" alt="Warehouse move complete - we're back, normal shipping resumed" class="w-full h-auto rounded-lg"></div>
+                        <div>
+                            <p>The boxes are unpacked, the shelves are stocked, and the coffee machine is brewing – we are absolutely thrilled to announce that our warehouse move is officially complete!</p>
+                            <p>It's been quite the journey, but thanks to the hard work of our small, dedicated team, we've successfully transitioned to our new, improved space.</p>
+                            <p class="!mb-0">And now we're ready to get back to what we do best: getting your orders out the door with the care and speed you expect!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Important Update on US Tariffs and Duties -->
+            <section id="important-update-on-us-tariffs-and-duties" class="announcement-section">
+                <div class="announcement-date">Sunday, October 26, 2025</div>
+                <div class="announcement-card">
+                    <div class="card-banner banner-primary">
+                        <h2>Important update on US tariffs and duties</h2>
+                        <p>Changes to pricing and checkout for all US orders</p>
+                    </div>
+                    <p>These changes are a direct result of new US tariffs and import regulations, and we want to be fully transparent about what this means for you.</p>
+                    <ul>
+                        <li><strong>Price Adjustments for Tariffs:</strong> We have adjusted product prices to account for US tariffs, calculated per product's origin and HS Code.</li>
+                        <li><strong>US Duties at Checkout:</strong> A separate duties line now appears at checkout to prevent surprise customs fees.</li>
+                        <li><strong>Lower Prices on 299 Products:</strong> We have reduced prices on 299 products to help offset impacts.</li>
+                    </ul>
+                    <h3>A final note on shipping</h3>
+                    <p>We understand shipping costs remain high. We are waiting for IOM Post to resume standard US services and exploring an alternative US-based shipping agent.</p>
+                </div>
+            </section>
+
+            <!-- CANADA SHIPPING SERVICE RESUMES! -->
+            <section id="canada-shipping-service-resumes" class="announcement-section">
+                <div class="announcement-date">Friday, October 18, 2025</div>
+                <div class="announcement-card">
+                    <div class="card-banner banner-success">
+                        <h2>Canada shipping service resumes!</h2>
+                        <p>DHL service to Canada is back — backlog dispatched</p>
+                    </div>
+                    <p>Mail service to Canada via DHL is reinstated. Royal Mail is expected to return soon.</p>
+                    <h3>Clearing the backlog</h3>
+                    <ul>
+                        <li><strong>Tracking updates:</strong> You’ll receive tracking if you haven’t already.</li>
+                        <li><strong>New orders welcome:</strong> You can now place new orders to Canada.</li>
+                        <li><strong>Royal Mail returning soon:</strong> We anticipate Royal Mail service resuming shortly.</li>
+                    </ul>
+                    <p class="!mb-0">Thank you for your patience while services were paused.</p>
+                </div>
+            </section>
+
+            <!-- ACTION REQUIRED: CHECK YOUR SPAM FOLDER -->
+            <section id="action-required-check-your-spam-folder" class="announcement-section">
+                <div class="announcement-date">Wednesday, October 15, 2025</div>
+                <div class="announcement-card">
+                    <div class="card-banner banner-primary">
+                        <h2>Action required: Check your spam folder</h2>
+                        <p>Help ensure you receive all future emails from us</p>
+                    </div>
+                    <h2>Important email update for our customers</h2>
+                    <p>Some of our emails may land in Spam/Junk following recent changes. Please take these steps:</p>
+                    <ul>
+                        <li><strong>Check your Spam/Junk folder:</strong> If you’re waiting for a reply, look there first.</li>
+                        <li><strong>Mark it "Not Spam":</strong> Mark emails from support@mrsnuff.com as not spam.</li>
+                        <li><strong>Add us to Contacts:</strong> Add <a href="mailto:support@mrsnuff.com">support@mrsnuff.com</a> to your address book.</li>
+                    </ul>
+                    <p class="!mb-0">This helps your provider trust our domain and deliver messages to your inbox.</p>
+                </div>
+            </section>
+
+            <!-- Warehouse Relocation -->
+            <section id="warehouse-relocation" class="announcement-section">
+                <div class="announcement-date">Saturday, October 4, 2025</div>
+                <div class="announcement-card">
+                    <div class="card-banner banner-primary">
+                        <h2>Warehouse relocation</h2>
+                        <p>Important information on excise stock</p>
+                    </div>
+                    <p>We are relocating our warehouse. During the move, our <strong>excise duty bond</strong> is temporarily suspended, which affects stock that requires the bond.</p>
+                    <p>We have a <strong>two-week window</strong> to clear bonded items. Remaining stock must be <strong>incinerated</strong> under customs supervision.</p>
+                    <h3>What this means for you</h3>
+                    <p>These products are priced at <strong>cost</strong> (plus required duty for UK). Restocking pauses until the new bond is in place.</p>
+                    <p class="!mb-0"><a href="https://www.mrsnuff.com/collections/warehouse-move-sale" class="text-white font-bold py-3 px-6 rounded-lg" style="background-color: var(--accent-primary); display: inline-block;">View Affected Products</a></p>
+                </div>
+            </section>
+
+            <!-- URGENT SERVICE SUSPENSION (Canada) -->
+            <section id="urgent-service-suspension-canada" class="announcement-section">
+                <div class="announcement-date">Tuesday, September 30, 2025</div>
+                <div class="announcement-card">
+                    <div class="card-banner banner-danger">
+                        <h2>Urgent service suspension</h2>
+                        <p>Shipments to Canada are temporarily halted</p>
+                    </div>
+                    <h2>Suspension of mail services to Canada</h2>
+                    <p>Please be advised of an immediate suspension of all shipping services to <strong>Canada</strong>.</p>
+                    <h3>Immediate action required</h3>
+                    <ul>
+                        <li><strong>Effective Date:</strong> September 30th, 2025 (until further notice).</li>
+                        <li><strong>Do NOT place new orders</strong> requiring shipment to Canadian addresses.</li>
+                        <li>Items received for Canada will be <strong>returned to sender</strong>.</li>
+                    </ul>
+                    <p class="!mb-0">This is due to national strike action at Canada Post and related network impacts.</p>
+                </div>
+            </section>
+
+            <!-- Backlog Cleared: We’re Back on Track! -->
+            <section id="backlog-cleared-were-back-on-track" class="announcement-section">
+                <div class="announcement-date">Thursday, September 25, 2025</div>
+                <div class="announcement-card">
+                    <div class="card-banner banner-success">
+                        <h2>Backlog cleared: We’re back on track!</h2>
+                        <p>US shipping resumed; operations normalized</p>
+                    </div>
+                    <p>Following changes to the US de minimis rule, shipping paused on Aug 22. We resumed on Sep 16 and have since dispatched <b>2,008 parcels</b> with a single-day high of <b>339 orders</b>.</p>
+                    <div class="mt-6"><img src="https://cdn.shopify.com/s/files/1/0375/4016/7724/files/daily-parcels-delivered.png?v=1758800070" alt="Daily parcels dispatched chart" class="w-full h-auto rounded-lg"></div>
+                </div>
+            </section>
+
+            <!-- A Note on Shipping Costs -->
+            <section id="a-note-on-shipping-costs" class="announcement-section">
+                <div class="announcement-card">
+                    <div class="card-banner banner-primary">
+                        <h2>A note on shipping costs</h2>
+                        <p>Why costs are high right now — and what’s next</p>
+                    </div>
+                    <ul>
+                        <li><strong>Seven-Day Express is our current option:</strong> We reconfigured service to conform to new rules; more affordable rates are in progress.</li>
+                        <li><strong>Your tariff is pre-paid:</strong> We currently absorb tariff costs to avoid surprise fees and speed customs clearance.</li>
+                    </ul>
+                    <p><strong class="font-bold" style="color: var(--accent-primary);">A look ahead:</strong> We’re working on more affordable options and exploring a dedicated US warehouse.</p>
+                </div>
+            </section>
+
+            <!-- Navigating the Storm (US Shipping Crisis) -->
+            <section id="navigating-the-storm" class="announcement-section">
+                <div class="announcement-card">
+                    <div class="card-banner banner-primary">
+                        <h2>Navigating the storm</h2>
+                        <p>How we overcame the US shipping crisis & got back to business</p>
+                    </div>
+                    <h3>A global shipping shutdown</h3>
+                    <p>On Aug 29, 2025, changes to the US de minimis rule made all low-value parcels subject to tariffs, disrupting global logistics.</p>
+                    <h3>Timeline highlights</h3>
+                    <ul>
+                        <li><strong>Aug 22:</strong> We absorb a new Royal Mail tariff to protect customers.</li>
+                        <li><strong>Aug 29:</strong> Global carriers suspend US shipping.</li>
+                        <li><strong>Sep 9:</strong> We integrate a compliant courier and resume shipping.</li>
+                        <li><strong>Sep 12:</strong> Brief pause as the new process is tested.</li>
+                        <li><strong>Today:</strong> US shipping fully restored; backlog clearing.</li>
+                    </ul>
+                    <h3>Our commitment</h3>
+                    <ul>
+                        <li><strong>We pay all tariffs & duties:</strong> No surprise fees on delivery.</li>
+                        <li><strong>Fast, compliant shipping:</strong> Express service with pre-paid duties.</li>
+                        <li><strong>Transparent updates:</strong> We'll keep you informed as things evolve.</li>
+                    </ul>
+                    <p class="!mb-0">Thank you to our warehouse team and our customers for your support.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<!-- JavaScript removed (nav not used) -->
