@@ -16,34 +16,22 @@ cmd /c git rm -r --cached .windsurf
 
 This removes the directory from git's index without deleting the actual files on disk.
 
-## Step 2: Update .gitignore
-Add `.windsurf/` to your `.gitignore` file if it's not already there. You can do this manually or run:
-```bash
-cmd /c echo .windsurf/ >> .gitignore
-```
-
-## Step 3: Verify Changes
+## Step 2: Verify Changes
 // turbo
 ```bash
 cmd /c git status
 ```
 
 You should see:
-- `.gitignore` as modified
 - `.windsurf/` no longer listed as tracked files
 
-## Step 4: Stage and Commit
+## Step 3: Stage and Commit
 // turbo
 ```bash
-cmd /c git add .gitignore
+cmd /c git commit -m "Remove .windsurf from tracking"
 ```
 
-// turbo
-```bash
-cmd /c git commit -m "Remove .windsurf from tracking and add to gitignore"
-```
-
-## Step 5: Final Verification
+## Step 4: Final Verification
 // turbo
 ```bash
 cmd /c git status
@@ -53,4 +41,4 @@ The `.windsurf/` directory should not appear in the output, confirming it's now 
 
 ---
 
-**Note:** If `.windsurf` was never committed to git, simply ensure `.gitignore` contains `.windsurf/` and you're done.
+**Note:** If `.windsurf` was never committed to git, this workflow is not needed.
